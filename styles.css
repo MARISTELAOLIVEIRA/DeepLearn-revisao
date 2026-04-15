@@ -240,6 +240,8 @@ h1 {
   background: linear-gradient(135deg, var(--secondary), var(--primary));
   color: #041019;
   box-shadow: 0 10px 28px rgba(124, 58, 237, 0.25);
+  width: fit-content;
+  justify-self: center;
 }
 
 .btn-secondary {
