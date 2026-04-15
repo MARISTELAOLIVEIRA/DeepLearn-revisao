@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz de Revisão - Fundamentos de Deep Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="professor-badge">
+    <div class="professor-avatar">
+      <img src="img/octocat.png" alt="Prof.ª Maristela" />
+    </div>
+    <span class="professor-name">Prof.ª Maristela</span>
+  </div>
+
+  <div class="app">
+    <section id="startScreen" class="screen active">
+      <div class="hero">
+        <div class="badge">⚡ Deep Learning • Faculdade Senac DF</div>
+        <h1>Quiz de Revisão<br>Fundamentos de Deep Learning</h1>
+        <p class="subtitle">
+          Responda 40 questões de múltipla escolha em um ambiente com visual escuro, barra de progresso e feedback imediato com justificativa personalizada em cada questão.
+        </p>
+      </div>
+      <div class="content">
+        <div class="grid">
+          <div class="input-group">
+            <label for="studentName">Nome completo do aluno</label>
+            <input type="text" id="studentName" placeholder="Digite seu nome completo para iniciar" />
+          </div>
+          <button class="btn btn-primary" id="startBtn">Iniciar questionário</button>
+          <p class="small-note">
+            O quiz libera as questões após o preenchimento do nome. Leia cada situação com atenção e acompanhe seu progresso durante a revisão.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="screen">
+      <div class="quiz-header">
+        <div class="topbar">
+          <div>
+            <div class="student-name" id="displayStudentName"></div>
+            <div class="counter" id="questionCounter">Questão 1 de 40</div>
+          </div>
+          <div class="counter" id="scoreMini">Acertos: 0</div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-text" id="progressText">Progresso: 0%</div>
+        </div>
+      </div>
+
+      <div class="quiz-body">
+        <div class="question-card">
+          <div class="question-tag">Revisão contextualizada</div>
+          <div class="question-text" id="questionText"></div>
+          <div class="options" id="optionsContainer"></div>
+          <div class="feedback" id="feedbackBox"></div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="prevBtn">Voltar</button>
+          <button class="btn btn-primary" id="nextBtn" disabled>Próxima</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div id="resultCaptureArea">
+        <div class="hero results">
+          <div class="badge">✅ Revisão concluída</div>
+          <h1>Resultado final</h1>
+          <p class="subtitle" id="resultStudentName"></p>
+        </div>
+        <div class="content results">
+            <div class="result-visual-wrap">
+    <div class="confetti-layer" id="confettiLayer"></div>
+    <img
+        id="resultFloatingImage"
+        class="result-floating-image"
+        src=""
+        alt="Imagem do resultado"
+    />
+    </div>
+          <div class="score-circle" id="scoreCircle">0%</div>
+          <p class="result-message" id="resultMessage"></p>
+
+          <div class="summary">
+            <div class="summary-card">
+              <h3>Total de questões</h3>
+              <p id="totalQuestions">40</p>
+            </div>
+            <div class="summary-card">
+              <h3>Acertos</h3>
+              <p id="correctAnswers">0</p>
+            </div>
+            <div class="summary-card">
+              <h3>Erros</h3>
+              <p id="wrongAnswers">0</p>
+            </div>
+            <div class="summary-card">
+              <h3>Aproveitamento</h3>
+              <p id="finalPercentage">0%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content result-actions-wrap">
+        <div class="actions center-actions">
+          <button class="btn btn-secondary" id="saveImageBtn">Salvar resultado como imagem</button>
+          <button class="btn btn-primary" id="restartBtn">Refazer quiz</button>
+        </div>
+        <p class="capture-note">Ao clicar em salvar, a tela final será exportada como imagem PNG.</p>
+      </div>
+    </section>
+  </div>
+
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
